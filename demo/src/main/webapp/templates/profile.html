@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Insert title here</title>
+</head>
+<body>
+		<form action="profile.htm" th:object="${profile}" method="post">
+		First name:<br/>
+		<input type="text" th:field="*{name}"  />
+		<br/>
+		Position :<br/>
+		<input type="text" th:field="*{position}"  />
+		<br/><br/>
+		Description:<br/>
+		<input type="text" th:field="*{description}" />
+		<br/>
+		Interests:<br/>
+		<input type="text" th:field="*{interests}" />
+		<br/><br/>
+		<br/><br/>
+		<input type="submit" value="Submit" />
+		</form> 
+		
+		
+		<div>
+			<span th:if="${null != profile.name}" th:text="${profile.name}"></span>
+			<br/><br/>
+		</div>
+		
+		<div>
+			<span th:if="${null != users}" th:each="user : ${users}" th:text="${user}"></span>
+			<br/><br/>
+		</div>
+		
+		
+</body>
+</html>

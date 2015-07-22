@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1" />
+<title>Resume Page</title>
+</head>
+<body>
+		<form action="resume.htm" th:object="${resumeDetails}" method="post">
+			First name:<br/>
+			<input type="text" th:field="*{name}"  />
+			<br/>
+			Position :<br/>
+			<input type="text" th:field="*{position}"  />
+			<br/><br/>
+			Description:<br/>
+			<input type="text" th:field="*{description}" />
+			<br/>
+			Interests:<br/>
+			<input type="text" th:field="*{interests}" />
+			<br/><br/>
+			<br/><br/>
+			<input type="submit" value="Submit" />
+		</form> 
+		
+		<br/><br/>
+		
+		
+		<table>
+			<thead>
+				<th>Name</th>
+				<th>Designation</th>
+				<th>Desc</th>
+				<th>Interests</th>
+			</thead>
+			<tbody>
+				<tr> <!-- th:each="resume : ${resumes}" -->
+					<td th:text="${resume.name}"></td>
+					<td th:text="${resume.position}"></td>
+					<td th:text="${resume.description}"></td>
+					<td th:text="${resume.interests}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+		<ul>
+		<li th:each="resume : ${resumes}" th:text="${resume.name}"></li>
+		
+		</ul>
+
+</body>
+</html>
